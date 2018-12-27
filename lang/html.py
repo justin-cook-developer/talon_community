@@ -98,14 +98,14 @@ context.keymap({
     '(tag | ellie) heading four' : CursorText('<h4>{.}</h4>'),
     '(tag | ellie) heading five' : CursorText('<h5>{.}</h5>'),
     '(tag | ellie) heading six' : CursorText('<h6>{.}</h6>'),
-    
+
 
     '((tag | ellie) paragraph | (tag | ellie) pee)' : CursorText('<p>{.}</p>'),
 
     '((tag | ellie) yule | (tag | ellie) un-list | (tag | ellie) un-ordered list)' : CursorText('<ul>{.}</ul>'),
     '((tag | ellie) open un-ordered list | (tag | ellie) open un-list)' : '<ul>',
     '((tag | ellie) close un-ordered list | (tag | ellie) close un-list)' : '</ul>',
- 
+
     '((tag | ellie) list item | (tag | ellie) lie)' : CursorText('<li>{.}</li>'),
     '((tag | ellie) open list item | (tag | ellie) open lie)' : '<li>',
     '((tag | ellie) close list item | (tag | ellie) close lie)' : '</li>',
@@ -119,7 +119,7 @@ context.keymap({
     '(tag | ellie) her': '<hr>',
     '(tag | ellie) burr': '<br>',
 
-    # Attributes - example: "tag div addy class box" will output "<div class="box"></div> 
+    # Attributes - example: "tag div addy class box" will output "<div class="box"></div>
     'addy class <dgndictation>' : [Key('left'), ' class=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
     'addy ID <dgndictation>' : [Key('left'), ' id=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
 
