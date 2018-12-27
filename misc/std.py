@@ -212,7 +212,6 @@ ctx.keymap(
         "string utf8": "'utf8'",
         "state past": "pass",
         "plus": "+",
-        "arrow": "->",
         "call": "()",
         "indirect": "&",
         "dereference": "*",

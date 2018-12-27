@@ -69,6 +69,7 @@ keymap = {
     "shell list [<dgndictation>]": ["ls ", text],
     "shell list all [<dgndictation>]": ["ls -la ", text],
     "shell make (durr | dear | directory) [<dgndictation>]": ["mkdir ", text],
+    "shell make (file) [<dgndictation>]": ["touch ", text],
     "shell mipple [<dgndictation>]": ["mkdir -p ", text],
     "shell move [<dgndictation>]": ["mv ", text],
     "shell remove [<dgndictation>]": ["rm ", text],
