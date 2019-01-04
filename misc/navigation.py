@@ -13,7 +13,7 @@ keymap = {
     "new window": Key("cmd-n"),
     "(next window | gibby)": Key("cmd-`"),
     "(last window | shibby)": Key("cmd-shift-`"),
-    "next space": Key("cmd-alt-ctrl-right"),
+"next space": Key("cmd-alt-ctrl-right"),
     "last space": Key("cmd-alt-ctrl-left"),
     # deleting
     # '(delete line)': Key('cmd-right cmd-backspace'),

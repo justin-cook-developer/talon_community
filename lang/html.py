@@ -65,6 +65,8 @@ context.keymap({
     '(tag | ellie) title': CursorText('<title>{.}</title>'),
     '(tag | ellie) head': CursorText('<head>{.}</head>'),
     '(tag | ellie) body': CursorText('<body>{.}</body>'),
+    '(tag | ellie) meta': CursorText('<meta {.}/>'),
+    '(tag | ellie) script': CursorText('<script src="{.}" defer></script>'),
 
     '(tag | ellie) header': CursorText('<header>{.}</header>'),
     '(tag | ellie) open header' : '<header>',
