@@ -89,6 +89,7 @@ context.keymap(
         "save": Key("cmd+s"),
         "open": Key("cmd+o"),
         # editing
+        "select line": Key("cmd-right cmd-shift-left"),
         "bracken": [Key("cmd-shift-ctrl-right")],
         # various
         "comment": Key("cmd-shift-7"),
