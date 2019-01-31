@@ -72,12 +72,16 @@ context.keymap({
     '(tag | ellie) open header' : '<header>',
     '(tag | ellie) close header' : '</header>',
 
+    '(tag | ellie) navigation': CursorText('<nav>{.}</nav>'),
+    '(tag | ellie) open navigation' : '<nav>',
+    '(tag | ellie) close navigation' : '</nav>',
+
     '(tag | ellie) main': CursorText('<main>{.}</main>'),
     '(tag | ellie) open main' : '<main>',
     '(tag | ellie) close main' : '</main>',
 
     '(tag | ellie) article': CursorText('<article>{.}</article>'),
-    '(tag | ellie) open article' : '<article>',
+     '(tag | ellie) open article' : '<article>',
     '(tag | ellie) close article' : '</article>',
 
     '(tag | ellie) footer': CursorText('<footer>{.}</footer>'),
@@ -120,6 +124,10 @@ context.keymap({
 
     '(tag | ellie) her': '<hr>',
     '(tag | ellie) burr': '<br>',
+
+    '(tag | ellie) strong': CursorText('<strong>{.}</strong>'),
+    '(tag | ellie) italic': CursorText('<em>{.}</em>'),
+    '(tag | ellie) underline': CursorText('<u>{.}</u>'),
 
     # Attributes - example: "tag div addy class box" will output "<div class="box"></div>
     'addy class <dgndictation>' : [Key('left'), ' class=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
