@@ -80,6 +80,10 @@ context.keymap({
     '(tag | ellie) open main' : '<main>',
     '(tag | ellie) close main' : '</main>',
 
+    '(tag | ellie) section': CursorText('<section>{.}</section>'),
+    '(tag | ellie) open section' : '<section>',
+    '(tag | ellie) close section' : '</section>',
+
     '(tag | ellie) article': CursorText('<article>{.}</article>'),
      '(tag | ellie) open article' : '<article>',
     '(tag | ellie) close article' : '</article>',
