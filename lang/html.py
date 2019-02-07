@@ -2,7 +2,11 @@ from talon.voice import Context, Key, press
 import talon.clip as clip
 from ..utils import text, parse_words, parse_words_as_integer, insert, word, join_words
 
-context = Context('html')
+def context_func(app, win):
+    if app.bundle == 'com.google.Chrome': return True
+    return False
+
+context = Context('html', func=context_func)
 
 def remove_spaces_around_dashes(m):
     words = parse_words(m)
@@ -125,6 +129,20 @@ context.keymap({
     '(tag | ellie) close link': CursorText('{.}</a>'),
 
     '(tag | ellie) image': CursorText('<img src="{.}" alt="" title="" />'),
+
+    '(tag | ellie) form': CursorText('<form action="{.}"></form>'),
+    '(tag | ellie) open form' : CursorText('<form action="{.}">'),
+    '(tag | ellie) close form' : '</form>',
+
+    '(tag | ellie) input': CursorText('<input type="{.}"/>'),
+
+    '(tag | ellie) lab': CursorText('<label for="{.}"></label>'),
+    '(tag | ellie) open lab' : CursorText('<label for="{.}">'),
+    '(tag | ellie) close lab' : '</label>',
+
+    '(tag | ellie) button': CursorText('<button type="{.}"></button>'),
+    '(tag | ellie) open button' : CursorText('<button type="{.}">'),
+    '(tag | ellie) close button' : '</button>',
 
     '(tag | ellie) her': '<hr>',
     '(tag | ellie) burr': '<br>',
