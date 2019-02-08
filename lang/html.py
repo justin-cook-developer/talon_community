@@ -148,10 +148,22 @@ context.keymap({
     '(tag | ellie) burr': '<br>',
 
     '(tag | ellie) strong': CursorText('<strong>{.}</strong>'),
+    '(tag | ellie) open strong' : CursorText('<strong>{.}'),
+    '(tag | ellie) close strong' : '</strong>',
+    
     '(tag | ellie) italic': CursorText('<em>{.}</em>'),
+    '(tag | ellie) open italic' : CursorText('<em>{.}'),
+    '(tag | ellie) close italic' : '</em>',
+    
     '(tag | ellie) underline': CursorText('<u>{.}</u>'),
+    '(tag | ellie) open underline' : CursorText('<u>{.}'),
+    '(tag | ellie) close underline' : '</u>',
+    
+    '(tag | ellie) strike': CursorText('<s>{.}</s>'),
+    '(tag | ellie) open strike' : CursorText('<s>{.}'),
+    '(tag | ellie) close strike' : '</s>',
 
-    # Attributes - example: "tag div addy class box" will output "<div class="box"></div>
+    # Attri1butes - example: "tag div addy class box" will output "<div class="box"></div>
     'addy class <dgndictation>' : [Key('left'), ' class=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
     'addy ID <dgndictation>' : [Key('left'), ' id=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
 
