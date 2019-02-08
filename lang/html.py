@@ -150,15 +150,15 @@ context.keymap({
     '(tag | ellie) strong': CursorText('<strong>{.}</strong>'),
     '(tag | ellie) open strong' : CursorText('<strong>{.}'),
     '(tag | ellie) close strong' : '</strong>',
-    
+
     '(tag | ellie) italic': CursorText('<em>{.}</em>'),
     '(tag | ellie) open italic' : CursorText('<em>{.}'),
     '(tag | ellie) close italic' : '</em>',
-    
+
     '(tag | ellie) underline': CursorText('<u>{.}</u>'),
     '(tag | ellie) open underline' : CursorText('<u>{.}'),
     '(tag | ellie) close underline' : '</u>',
-    
+
     '(tag | ellie) strike': CursorText('<s>{.}</s>'),
     '(tag | ellie) open strike' : CursorText('<s>{.}'),
     '(tag | ellie) close strike' : '</s>',

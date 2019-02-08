@@ -17,6 +17,10 @@ def rot13(i, word, _):
         out += c
     return out
 
+def pee(i, word, last):
+    if i > 0: word = '-' + word
+    if last: word += ': '
+    return word
 
 formatters = {
     "cram": (True, lambda i, word, _: word if i == 0 else word.capitalize()),
@@ -50,6 +54,8 @@ formatters = {
     "posh": (False, surround("'")),
     "padded": (False, surround(" ")),
     "rot-thirteen": (False, rot13),
+    # for css
+    "pee": (True, pee),
 }
 
 
