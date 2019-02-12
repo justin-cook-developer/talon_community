@@ -17,6 +17,17 @@ def CursorText(s):
 
 context.keymap({
   'paw color' : CursorText('rgba({.})'),
+  'paw check' : CursorText('skewX({.})'),
+  'paw checker' : CursorText('skewY({.})'),
+  # animation
+  'keyframe' : '@keyframes ',
+  # media queries
+  'media' : CursorText('@media ({.})'),
+  'minimum height' : CursorText('min-height: {.}'),
+  'maximum height' : CursorText('max-height: {.}'),
+  'minimum with' : CursorText('min-width: {.}'),
+  'maximum with' : CursorText('max-width: {.}'),
   # units
-  'you pick' : ['px;', Key('enter')],
+  'you pick' : 'px',
+  'you dag' : 'deg',
 })
