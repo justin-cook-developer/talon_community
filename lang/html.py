@@ -4,6 +4,7 @@ from ..utils import text, parse_words, parse_words_as_integer, insert, word, joi
 
 def context_func(app, win):
     if app.bundle == 'com.google.Chrome': return True
+    elif win.doc.endswith(".html"): return True
     return False
 
 context = Context('html', func=context_func)
@@ -129,10 +130,15 @@ context.keymap({
     '(tag | ellie) close link': CursorText('{.}</a>'),
 
     '(tag | ellie) image': CursorText('<img src="{.}" alt="" title="" />'),
+    '(tag | ellie) figure': CursorText('<figure>{.}</figure>'),
+    '(tag | ellie) figure caption': CursorText('<figcaption>{.}</figcaption>'),
 
     '(tag | ellie) form': CursorText('<form action="{.}"></form>'),
     '(tag | ellie) open form' : CursorText('<form action="{.}">'),
     '(tag | ellie) close form' : '</form>',
+
+    '(tag | ellie) fill said': CursorText('<fieldset>{.}</fieldset>'),
+    '(tag | ellie) legend': CursorText('<legend>{.}</legend>'),
 
     '(tag | ellie) input': CursorText('<input type="{.}"/>'),
 
@@ -166,6 +172,8 @@ context.keymap({
     # Attri1butes - example: "tag div addy class box" will output "<div class="box"></div>
     'addy class <dgndictation>' : [Key('left'), ' class=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
     'addy ID <dgndictation>' : [Key('left'), ' id=""', Key('left'), remove_spaces_around_dashes, Key('right right')],
+    'addy access' : ['accesskey=""', Key('left')],
+    'addy tab' : ['tabindex=""', Key('left')],
 
     # Moving Around between tags
     'skip (tag | ellie) right' : skip_tag_right,

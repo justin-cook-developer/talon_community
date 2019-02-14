@@ -4,6 +4,7 @@ from ..utils import text, parse_words, parse_words_as_integer, insert, word, joi
 
 def context_func(app, win):
     if app.bundle == 'com.google.Chrome': return True
+    elif win.doc.endswith(".css"): return True
     return False
 
 context = Context('css', func=context_func)
@@ -16,6 +17,7 @@ def CursorText(s):
 # 'pee background color' will output 'background-color: '
 
 context.keymap({
+  'paw with' : 'width: ',
   'paw color' : CursorText('rgba({.})'),
   'paw check' : CursorText('skewX({.})'),
   'paw checker' : CursorText('skewY({.})'),
