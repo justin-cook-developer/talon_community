@@ -24,7 +24,8 @@ context.keymap({
   # animation
   'keyframe' : '@keyframes ',
   # media queries
-  'media' : CursorText('@media ({.})'),
+  'media general' : CursorText('@media screen and ({.})'),
+  # media query attributesk
   'minimum height' : CursorText('min-height: {.}'),
   'maximum height' : CursorText('max-height: {.}'),
   'minimum with' : CursorText('min-width: {.}'),
@@ -32,4 +33,15 @@ context.keymap({
   # units
   'you pick' : 'px',
   'you dag' : 'deg',
+  # flex box properties
+  'flex justify content' : 'justify-content: ',
+  'flex justify self' : 'justify-self: ',
+  'flex line content' : 'align-content: ',
+  'flex line items' : 'align-items: ',
+  'flex line self' : 'align-self: ',
+  'flex solid' : 'flex-wrap: ',
+  # flex box property values
+  'flex and' : 'flex-end',
+  'flex solid none' : 'nowrap',
+  'flex solid real' : 'wrap',
 })

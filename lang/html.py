@@ -114,7 +114,6 @@ context.keymap({
     '(tag | ellie) heading five' : CursorText('<h5>{.}</h5>'),
     '(tag | ellie) heading six' : CursorText('<h6>{.}</h6>'),
 
-
     '((tag | ellie) paragraph | (tag | ellie) pee)' : CursorText('<p>{.}</p>'),
 
     '((tag | ellie) yule | (tag | ellie) un-list | (tag | ellie) un-ordered list)' : CursorText('<ul>{.}</ul>'),
@@ -142,9 +141,21 @@ context.keymap({
 
     '(tag | ellie) input': CursorText('<input type="{.}"/>'),
 
+    '(tag | ellie) select': CursorText('<select>{.}</select>'),
+    '(tag | ellie) open select' : '<select>',
+    '(tag | ellie) close select' : '</select>',
+
+    '(tag | ellie) option': CursorText('<option value="{.}"></option>'),
+    '(tag | ellie) open option' : CursorText('<option value="{.}">'),
+    '(tag | ellie) close option' : '</option>',
+
     '(tag | ellie) lab': CursorText('<label for="{.}"></label>'),
     '(tag | ellie) open lab' : CursorText('<label for="{.}">'),
     '(tag | ellie) close lab' : '</label>',
+
+    '(tag | ellie) abbreviation': CursorText('<abbr title="{.}"></abbr>'),
+    '(tag | ellie) open abbreviation' : CursorText('<abbr title="{.}">'),
+    '(tag | ellie) close abbreviation' : '</abbr>',
 
     '(tag | ellie) button': CursorText('<button type="{.}"></button>'),
     '(tag | ellie) open button' : CursorText('<button type="{.}">'),
