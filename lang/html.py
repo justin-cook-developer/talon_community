@@ -161,6 +161,26 @@ context.keymap({
     '(tag | ellie) open button' : CursorText('<button type="{.}">'),
     '(tag | ellie) close button' : '</button>',
 
+    '(tag | ellie) table': CursorText('<table>{.}</table>'),
+    '(tag | ellie) open table' : CursorText('<table>{.}'),
+    '(tag | ellie) close table' : '</table>',
+
+    '(tag | ellie) table head': CursorText('<thead>{.}</thead>'),
+    '(tag | ellie) open table head' : CursorText('<thead>{.}'),
+    '(tag | ellie) close table head' : '</thead>',
+
+    '(tag | ellie) table body': CursorText('<tbody>{.}</tbody>'),
+    '(tag | ellie) open table body' : CursorText('<tbody>{.}'),
+    '(tag | ellie) close table body' : '</tbody>',
+
+    '(tag | ellie) table row': CursorText('<tr>{.}</tr>'),
+    '(tag | ellie) open table row' : CursorText('<tr>{.}'),
+    '(tag | ellie) close table row' : '</tr>',
+
+    '(tag | ellie) table data': CursorText('<td>{.}</td>'),
+    '(tag | ellie) open table data' : CursorText('<td>{.}'),
+    '(tag | ellie) close table data' : '</td>',
+
     '(tag | ellie) her': '<hr>',
     '(tag | ellie) burr': '<br>',
 

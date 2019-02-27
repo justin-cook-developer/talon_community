@@ -19,8 +19,6 @@ def CursorText(s):
 context.keymap({
   'paw with' : 'width: ',
   'paw color' : CursorText('rgba({.})'),
-  'paw check' : CursorText('skewX({.})'),
-  'paw checker' : CursorText('skewY({.})'),
   # animation
   'keyframe' : '@keyframes ',
   # media queries
@@ -34,12 +32,11 @@ context.keymap({
   'you pick' : 'px',
   'you dag' : 'deg',
   # flex box properties
-  'flex justify content' : 'justify-content: ',
-  'flex justify self' : 'justify-self: ',
   'flex line content' : 'align-content: ',
   'flex line items' : 'align-items: ',
   'flex line self' : 'align-self: ',
   'flex solid' : 'flex-wrap: ',
+  'flex shrink': 'flex-shrink: ',
   # flex box property values
   'flex and' : 'flex-end',
   'flex solid none' : 'nowrap',
