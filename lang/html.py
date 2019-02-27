@@ -5,7 +5,9 @@ from ..utils import text, parse_words, parse_words_as_integer, insert, word, joi
 def context_func(app, win):
     if app.bundle == 'com.google.Chrome': return True
     elif win.doc.endswith(".html"): return True
-    return False
+    elif win.doc.endswith(".js"): return True
+    elif win.doc.endswith(".jsx"): return True
+    else: return False
 
 context = Context('html', func=context_func)
 

@@ -5,7 +5,7 @@ from ..utils import text, parse_words, parse_words_as_integer, insert, word, joi
 def verifyExtension(app, win):
     return win.doc.endswith(".js") or win.doc.endswith(".jsx")
 
-context = Context("javascript")
+context = Context("javascript", func=verifyExtension)
 
 def remove_spaces_around_dashes(m):
     words = parse_words(m)
@@ -78,7 +78,6 @@ context.keymap({
     'log error': 'logE',
     'log object': 'logD',
     'axe': 'ImportAxios',
-    'require': 'requireMOD',
 
     # commands for express
     'express import': 'ImportExpress',
