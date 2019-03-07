@@ -19,6 +19,8 @@ def CursorText(s):
 context.keymap({
   'paw with' : 'width: ',
   'paw color' : CursorText('rgba({.})'),
+  'paw calc': CursorText('calc({.})'),
+  'paw var': CursorText('var(--{.})'),
   # animation
   'keyframe' : '@keyframes ',
   # media queries
@@ -31,6 +33,7 @@ context.keymap({
   # units
   'you pick' : 'px',
   'you dag' : 'deg',
+  'you frack': 'fr',
   # flex box properties
   'flex line content' : 'align-content: ',
   'flex line items' : 'align-items: ',
@@ -41,4 +44,14 @@ context.keymap({
   'flex and' : 'flex-end',
   'flex solid none' : 'nowrap',
   'flex solid real' : 'wrap',
+  # grid properties
+  'grid to columns': 'grid-template-columns: ',
+  'grid to rows': 'grid-template-rows: ',
+  'grid column gap': 'grid-column-gap: ',
+  'grid row gap': 'grid-row-gap: ',
+  'grid gap': 'grid-gap: ',
+  'grid column': 'grid-column: ',
+  'grid row': 'grid-row: ',
+  'grid repeat': CursorText('repeat({.})'),
+  'grid min': CursorText('minmax({.})'),
 })
