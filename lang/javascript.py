@@ -49,7 +49,8 @@ context.keymap({
     'word no': 'null',
     'arrow': ' => ',
     'assign': ' = ',
-    'asink': ' async ',
+    'asink': 'async ',
+    'oh wait': ' await ',
 
 
     'op (minus | subtract)': ' - ',
@@ -72,12 +73,6 @@ context.keymap({
     '(op (power | exponent) | to the power [of])': ' ** ',
     'op and': ' && ',
     'op or': ' || ',
-
-    # utility snippets
-    'log': 'log',
-    'log error': 'logE',
-    'log object': 'logD',
-    'axe': 'ImportAxios',
 
     # commands for express
     'express import': 'ImportExpress',
