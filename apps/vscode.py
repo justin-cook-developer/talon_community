@@ -70,7 +70,7 @@ context.keymap(
         "Go to line": Key("cmd-g"),
         "line up" + optional_numerals: repeat_function(2, "alt-up"),
         "line down" + optional_numerals: repeat_function(2, "alt-down"),
-        # Navigating Interface
+        # Naviigating Interface
         "explore tab": Key("shift-cmd-e"),
         "search tab": Key("shift-cmd-f"),
         "debug tab": Key("shift-cmd-d"),
@@ -92,7 +92,7 @@ context.keymap(
         "select line": Key("cmd-right cmd-shift-left"),
         "bracken": [Key("cmd-shift-ctrl-right")],
         # various
-        "comment": Key("cmd-shift-7"),
+        "comment": Key("cmd-/"),
         "search all": Key("cmd-shift-f"),
         "(drop-down | drop)": Key("ctrl-space"),
     }

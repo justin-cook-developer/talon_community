@@ -101,6 +101,7 @@ keymap = {
     "shell make (file) [<dgndictation>]": ["touch ", text],
     "shell make script": "touch index.js",
     "shell make mark": "touch index.html",
+    "shelll make style": "touch style.css",
     "shell mipple [<dgndictation>]": ["mkdir -p ", text],
     "shell move [<dgndictation>]": ["mv ", text],
     "shell remove [<dgndictation>]": ["rm ", text],
