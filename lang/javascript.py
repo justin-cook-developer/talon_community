@@ -24,7 +24,7 @@ context.keymap({
     'static': 'static ',
     'args': ['()', Key('left')],
     'index': ['[]', Key('left')],
-    'block': [' {}', Key('left enter enter up tab')],
+    'block': [' {}', Key('left enter')],
     'empty array': '[]',
     'empty object': '{}',
     'call': '()',
@@ -33,7 +33,7 @@ context.keymap({
     'state return': 'return ',
     'state constructor': 'constructor ',
     'state if': ['if ()', Key('left')],
-    'state else': ' else ',
+    'state else': ' else',
     'state else if': [' else if ()', Key('left')],
     'state while': ['while ()', Key('left')],
     'state for': ['for ()', Key('left')],
@@ -51,7 +51,6 @@ context.keymap({
     'assign': ' = ',
     'asink': 'async ',
     'oh wait': ' await ',
-
 
     'op (minus | subtract)': ' - ',
     'op (plus | add)': ' + ',
