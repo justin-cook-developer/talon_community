@@ -1,6 +1,11 @@
+"""
+macros are not savable, but they are semantic in that functions are recorded,
+not keypresses. This means that macros can interact with your computer state
+such as by looking at what is in the clipboard, are referencing nearby text.
+"""
+
 from talon.voice import Context, talon, Key, Str, press
 from talon.engine import engine
-from ..utils import text_to_number
 
 macro = []
 last_actions = None
@@ -13,8 +18,6 @@ def macro_record(j):
     global macro_recording
 
     if macro_recording:
-        # print(j)
-        # if j["cmd"] == "p.end" and j["path"]:
         if j["cmd"] == "p.end":
             new = talon.last_actions
             if new != last_actions:
@@ -46,7 +49,7 @@ def macro_play(m):
 
     for item in macro:
         for action, rule in item:
-            act = action(rule) or (action, rule)
+            action(rule) or (action, rule)
 
 
 def macro_print(m):

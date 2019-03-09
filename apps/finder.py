@@ -10,7 +10,18 @@ def go_to_path(path):
     return path_function
 
 
-ctx = Context("Finder", bundle="com.apple.finder")
+def context(app, win):
+    if app.bundle == "com.apple.finder":
+        return True
+    # allow these commands to work while using open dialogue in atom. There is
+    # probably a better way to do this more generally
+    elif app.bundle == "com.github.atom" and win.title == "Open Folder":
+        return True
+    else:
+        return False
+
+
+ctx = Context("Finder", func=context)
 
 ctx.keymap(
     {
@@ -40,7 +51,7 @@ ctx.keymap(
         "new tab": Key("cmd-alt-o"),
         "paste": Key("cmd-v"),
         "close": Key("cmd-w"),
-        # NOT WORKING "cut": Key("cmd-x"),
+        "cut": Key("cmd-x"),
         "undo": Key("cmd-z"),
         "[finder] preferences": Key("cmd-,"),
         "(icon | icons) [(mode | view)]": Key("cmd-1"),
@@ -70,5 +81,6 @@ ctx.keymap(
         "spotlight [menu]": Key("cmd-space"),
         "spotlight window": Key("cmd-alt-space"),
         # NOT WORKING: Function key shorcuts (f8 through f12)
+        "toggle hidden files": Key("cmd-shift-."),
     }
 )

@@ -1,12 +1,16 @@
+import time
+
 from talon.voice import Word, Key, Context, Str, press
+from talon_init import TALON_HOME, TALON_PLUGINS, TALON_USER
+from talon import ctrl, ui
 import string
 
-from ..utils import numerals, parse_words, text
+from ..utils import numerals, parse_words, text, is_in_bundles, insert
+from ..bundle_groups import TERMINAL_BUNDLES
 
-# TODO: move application specific commands into their own files: git, apt-get, etc
+# TODO: move application specific commands into their own files: apt-get, etc
 
-terminals = ("com.apple.Terminal", "com.googlecode.iterm2")
-ctx = Context("terminal", func=lambda app, win: any(t in app.bundle for t in terminals))
+ctx = Context("terminal", func=is_in_bundles(TERMINAL_BUNDLES))
 
 mapping = {"semicolon": ";", r"new-line": "\n", r"new-paragraph": "\n\n"}
 
@@ -28,9 +32,27 @@ def dash(m):
         press("-")
         Str("-".join(words))(None)
 
+
 KUBERNETES_PREFIX = "(cube | cube control)"
 
+directory_shortcuts = {
+    "talon home": TALON_HOME,
+    "talon user": TALON_USER,
+    "talon plug-ins": TALON_PLUGINS,
+    "talon community": "~/.talon/user/talon_community",
+}
+
+
+def cd_directory_shortcut(m):
+    directory = directory_shortcuts[m[1]]
+    insert(f"cd {directory}; ls")
+    for _ in range(4):
+        press("left")
+
+
 keymap = {
+    "lefty": Key("ctrl-a"),
+    "ricky": Key("ctrl-e"),
     "(pain new | split vertical)": Key("cmd-d"),
     # talon
     "tail talon": "tail -f .talon/talon.log",
@@ -55,12 +77,19 @@ keymap = {
         Key("left"),
         text,
     ],
+    "cd {terminal.directory_shortcuts}": cd_directory_shortcut,
     "(ls | run ellis | run alice)": "ls\n",
     "(la | run la)": "ls -la\n",
-    "durrup": "cd ..; ls\n",
+    # "durrup": "cd ..; ls\n",
     "go back": "cd -\n",
     "dash <dgndictation> [over]": dash,
     "pseudo": "sudo ",
+    "(redo pseudo | pseudo [make me a] sandwich)": [
+        Key("up"),
+        Key("ctrl-a"),
+        "sudo ",
+        Key("enter"),
+    ],
     "shell C H mod": "chmod ",
     "shell clear": [Key("ctrl-c"), "clear\n"],
     "shell copy [<dgndictation>]": ["cp ", text],
@@ -86,6 +115,9 @@ keymap = {
     "shell M player": "mplayer ",
     "shell nvidia S M I": "nvidia-smi ",
     "shell R sync": "./src/dotfiles/sync_rsync ",
+    "shell tail": "tail ",
+    "shell tail follow": "tail -f ",
+    "shall count lines": "wc -l ",
     # python
     "create virtual environment": ["virtualenv -p python3 venv", Key("enter")],
     "activate virtual environment": [
@@ -97,53 +129,10 @@ keymap = {
     "apt get install": "apt-get install ",
     "apt get update": "apt-get update ",
     "apt get upgrade": "apt-get upgrade ",
-    # git
-    "jet [<dgndictation>]": ["git ", text],
-    "jet add [<dgndictation>]": ["git add ", text],
-    "jet branch": "git branch",
-    "jet branch delete [<dgndictation>]": ["git branch -D ", text],
-    "jet branch all [<dgndictation>]": ["git branch -a ", text],
-    "jet clone [<dgndictation>]": ["git clone ", text],
-    "jet checkout master": "git checkout master",
-    "jet checkout [<dgndictation>]": ["git checkout ", text],
-    "jet checkout branch [<dgndictation>]": ["git checkout -B ", text],
-    "jet cherry pick [<dgndictation>]": ["git cherry-pick ", text],
-    "jet commit [<dgndictation>]": ['git commit -m ""', Key("left"), text],
-    "jet commit amend [<dgndictation>]": [
-        'git commit --amend -m ""',
-        Key("left"),
-        text,
-    ],
-    "jet commit all [<dgndictation>]": ['git commit -a -m ""', Key("left"), text],
-    "jet config [<dgndictation>]": ["git config ", text],
-    "jet config list [<dgndictation>]": ["git config --list ", text],
-    "jet diff [<dgndictation>]": ["git diff ", text],
-    "jet history": "git hist ",
-    "jet (init | initialize)": "git init ",
-    "jet log": "git log ",
-    "jet merge [<dgndictation>]": ["git merge ", text],
-    "jet move [<dgndictation>]": ["git mv ", text],
-    "jet pull [<dgndictation>]": ["git pull ", text],
-    "jet pull (base | re-base | rebase | re base) [<dgndictation>]": [
-        "git pull --rebase ",
-        text,
-    ],
-    "jet push [<dgndictation>]": ["git push ", text],
-    "jet push force [<dgndictation>]": ["git push --force ", text],
-    "jet push set up stream [<dgndictation>]": ["git push --set-upstream ", text],
-    "jet rebase continue": "git rebase --continue",
-    "jet rebase [<dgndictation>]": ["git rebase ", text],
-    "jet remove [<dgndictation>]": ["git rm ", text],
-    "jet reset": "git reset ",
-    "jet reset hard": "git reset --hard ",
-    "jet show": "git show ",
-    "jet stash": "git stash ",
-    "jet stash apply": "git stash apply ",
-    "jet stash pop": "git stash pop ",
-    "jet status": "git status ",
     # Tools
-    "(grep | grip)": ["grep  .", Key("left left")],
-    "gripper": ["grep -r  .", Key("left left")],
+    # "(grep | grip)": ["grep  .", Key("left left")],
+    "(grep | grip)": "grep ",
+    # "gripper": ["grep -r  .", Key("left left")],
     "pee socks": "ps aux ",
     "vi": "vi ",
     # python
@@ -209,6 +198,9 @@ keymap = {
     KUBERNETES_PREFIX + "help": "kubectl help ",
     KUBERNETES_PREFIX + "plugin": "kubectl plugin ",
     KUBERNETES_PREFIX + "version": "kubectl version ",
+    KUBERNETES_PREFIX
+    + "shell": ["kubectl exec -it  -- /bin/bash"]
+    + [Key("left")] * 13,
     # conda
     "conda install": "conda install ",
     "conda list": "conda list ",
@@ -221,21 +213,37 @@ keymap = {
     "note remove [<dgndictation>]": ["npm remove ", text],
     "note run": "npm start\n",
     "note run develop": "npm run start-dev",
+    "T mux scroll": [Key("ctrl-b"), Key("[")],
+    # other
+    "shell make": "make\n",
+    "shell jobs": "jobs\n",
 }
 
-for action in ('get', 'delete', 'describe'):
-    for object in ('nodes', 'jobs', 'pods', ''):
+for action in ("get", "delete", "describe"):
+    for object in ("nodes", "jobs", "pods", "namespaces", "services", ""):
         if object:
-            object = object + ' '
-        command = f'{KUBERNETES_PREFIX} {action} {object}'
-        typed = f'kubectl {action} {object}'
+            object = object + " "
+        command = f"{KUBERNETES_PREFIX} {action} {object}"
+        typed = f"kubectl {action} {object}"
         keymap.update({command: typed})
 
-keymap.update({"pain " + str(i): Key("alt-" + str(i)) for i in range(10)})
+keymap.update({"(pain | bang) " + str(i): Key("alt-" + str(i)) for i in range(10)})
 
 ctx.keymap(keymap)
+ctx.set_list("directory_shortcuts", directory_shortcuts.keys())
 
 
+def shell_rerun(m):
+    # switch_app(name='iTerm2')
+    app = ui.apps(bundle="com.googlecode.iterm2")[0]
+    ctrl.key_press("c", ctrl=True, app=app)
+    time.sleep(0.05)
+    ctrl.key_press("up", app=app)
+    ctrl.key_press("enter", app=app)
+
+
+global_ctx = Context("global_terminal")
+global_ctx.keymap({"shell rerun": shell_rerun})
 # module.exports = {
 #   permissions: "chmod "
 #   access: "chmod "
