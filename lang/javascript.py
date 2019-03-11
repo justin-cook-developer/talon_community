@@ -89,19 +89,6 @@ context.keymap({
     'model equalize': 'Sequelize',
     'model nag': 'allowNull',
 
-    # commands for react
-    'react import': 'ImportReact',
-    'react tag': ['< />', Key('left left left')],
-    'react clack': 'onClick',
-    # need to add snippets for components
-    'react component': ['React.Component ', Key('left')],
-
-    # commands for react dom
-    'document import': 'ImportDOM',
-    'document import hash': 'ImportHash',
-    'document import browser': 'ImportBrowser',
-    'document render': ['ReactDOM.render()', Key('left')],
-
     # commands for redux
     'store import': 'ImportRedux',
     'store logger': 'ImportLogger',
