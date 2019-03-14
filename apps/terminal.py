@@ -99,9 +99,6 @@ keymap = {
     "shell list all [<dgndictation>]": ["ls -la ", text],
     "shell make (durr | dear | directory) [<dgndictation>]": ["mkdir ", text],
     "shell make (file) [<dgndictation>]": ["touch ", text],
-    "shell make script": "touch index.js",
-    "shell make mark": "touch index.html",
-    "shelll make style": "touch style.css",
     "shell mipple [<dgndictation>]": ["mkdir -p ", text],
     "shell move [<dgndictation>]": ["mv ", text],
     "shell remove [<dgndictation>]": ["rm ", text],
@@ -146,17 +143,6 @@ keymap = {
     "pip [install] upgrade": "pip install --upgrade ",
     "pip uninstall": "pip uninstall ",
     "pip list": "pip list",
-    # seqeulize
-    'new migration': 'sequelize migration:generate --name ',
-    'new model': 'sequelize model:generate --name ',
-    'model attributes': ' --attributes ',
-    'run migration': 'sequelize db:migrate ',
-    'undo migration': 'sequelize db:migrate:undo ',
-    'new seed': 'sequelize seed:generate --name ',
-    'run all seeds': 'sequelize db:seed:all ',
-    'undo all seeds': 'sequelize db:seed:undo:all ',
-    'run seed': 'sequelize db:seed --seed ',
-    'undo seed': 'sequelize db:seed:undo ',
     # kubkectl
     KUBERNETES_PREFIX + "control": "kubectl ",
     KUBERNETES_PREFIX + "create": "kubectl create ",
@@ -208,12 +194,6 @@ keymap = {
     # tmux
     "T mux new session": "tmux ",
     "T mux scroll": [Key('ctrl-b'), Key('[')],
-    # npm commands
-    "note install [<dgndictation>]": ["npm install ", text],
-    "note develop [<dgndictation>]": ["npm install --save-dev ", text],
-    "note remove [<dgndictation>]": ["npm remove ", text],
-    "note run": "npm start\n",
-    "note run develop": "npm run start-dev",
     "T mux scroll": [Key("ctrl-b"), Key("[")],
     # other
     "shell make": "make\n",
