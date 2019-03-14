@@ -6,8 +6,6 @@ ctx = Context(
 )
 
 
-# to find title: print(ui.active_window().title)
-
 ctx.keymap({
   'next exercise' : Key("tab tab enter"),
 })
