@@ -3,9 +3,9 @@ import talon.clip as clip
 from ..utils import text, parse_words, parse_words_as_integer, insert, word, join_words
 
 def verifyExtension(app, win):
-    return win.doc.endswith(".js") or win.doc.endswith(".jsx")
+    return win.doc.endswith(".js") or win.doc.endswith(".jsx") or "freeCodeCamp" in win.title
 
-context = Context("javascript")
+context = Context("javascript", func=verifyExtension)
 
 def remove_spaces_around_dashes(m):
     words = parse_words(m)
