@@ -17,7 +17,7 @@ ctx.set_list("n", numeral_list)
 
 
 def find_next(m):
-    press("cmd-f")
+    press("5")
     Str(str(m.dgndictation[0]._words[0]))(None)
     press("escape")
 
