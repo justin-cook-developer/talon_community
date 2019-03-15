@@ -70,7 +70,7 @@ context.keymap(
         "Go to line": Key("cmd-g"),
         "line up" + optional_numerals: repeat_function(2, "alt-up"),
         "line down" + optional_numerals: repeat_function(2, "alt-down"),
-        # Naviigating Interface
+        # Navigating Interface
         "explore tab": Key("shift-cmd-e"),
         "search tab": Key("shift-cmd-f"),
         "debug tab": Key("shift-cmd-d"),
