@@ -172,7 +172,7 @@ keymap = {
     "pip [install] upgrade": "pip install --upgrade ",
     "pip uninstall": "pip uninstall ",
     "pip list": "pip list",
-    # kubkectl
+    # kubectl
     KUBERNETES_PREFIX + "control": "kubectl ",
     KUBERNETES_PREFIX + "create": "kubectl create ",
     KUBERNETES_PREFIX + "expose": "kubectl expose ",
