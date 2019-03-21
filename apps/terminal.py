@@ -223,7 +223,6 @@ keymap = {
     # tmux
     "T mux new session": "tmux ",
     "T mux scroll": [Key('ctrl-b'), Key('[')],
-    "T mux scroll": [Key("ctrl-b"), Key("[")],
     # other
     "shell make": "make\n",
     "shell jobs": "jobs\n",
