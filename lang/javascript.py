@@ -3,7 +3,7 @@ import talon.clip as clip
 from ..utils import text, parse_words, parse_words_as_integer, insert, word, join_words
 
 def verifyExtension(app, win):
-    return win.doc.endswith(".js") or win.doc.endswith(".jsx") or "freeCodeCamp" in win.title
+    return win.doc.endswith(".js") or win.doc.endswith(".ts") or win.doc.endswith(".jsx") or "freeCodeCamp" in win.title
 
 context = Context("javascript", func=verifyExtension)
 

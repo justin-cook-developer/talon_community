@@ -14,6 +14,7 @@ def context_func(app, win):
     if app.bundle == 'com.google.Chrome': return True
     elif win.doc.endswith(".html"): return True
     elif win.doc.endswith(".js"): return True
+    elif win.doc.endswith(".ts"): return True
     elif win.doc.endswith(".jsx"): return True
     else: return False
 
