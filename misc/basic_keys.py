@@ -20,8 +20,8 @@ simple_keys = normalise_keys(
         "( enter | shock )": "enter",
         "( escape | randall )": "escape",
         "home": "home",
-        "page down": "pagedown",
-        "page up": "pageup",
+        "(pagedown | page down)": "pagedown",
+        "(pageup | page up)": "pageup",
         "end": "end",
     }
 )
