@@ -23,6 +23,10 @@ def title_case_capitalize_word(index, word, _):
     else:
         return word
 
+def pee(i, word, last):
+    if i > 0: word = '-' + word
+    if last: word += ': '
+    return word
 
 formatters = normalise_keys(
     {
@@ -56,6 +60,8 @@ formatters = normalise_keys(
         "smash": (True, lambda i, word, _: word),
         "(spine | kebab)": (True, lambda i, word, _: word if i == 0 else "-" + word),
         "title": (False, title_case_capitalize_word),
+        # for css
+        "pee": (True, pee),
     }
 )
 
@@ -124,3 +130,5 @@ ctx.keymap(
         "(%s)+" % (" | ".join(surrounders)): FormatText,
     }
 )
+
+

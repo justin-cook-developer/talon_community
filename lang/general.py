@@ -70,13 +70,30 @@ ctx.keymap(
         # Other Keywords
         "const": "const ",
         "static": "static ",
+        "import": "import ",
+        "class": "class ",
         "tip pent": "int ",
         "tip char": "char ",
         "tip byte": "byte ",
         "tip float": "float ",
         "tip double": "double ",
+        "tip pent 64": "int64_t ",
+        "tip you went 64": "uint64_t ",
+        "tip pent 32": "int32_t ",
+        "tip you went 32": "uint32_t ",
+        "tip pent 16": "int16_t ",
+        "tip you went 16": "uint16_t ",
+        "tip pent 8": "int8_t ",
+        "tip you went 8": "uint8_t ",
+        "tip size": "size_t",
         # Comments
         "comment see": "// ",
         "comment py": "# ",
+        # from std.py
+        "state include": "#include ",
+        "state include system": ["#include <>", Key("left")],
+        "state include local": ['#include ""', Key("left")],
+        "state type deaf": "typedef ",
+        "state type deaf struct": ["typedef struct {\n\n};", Key("up"), "\t"],
     }
 )
